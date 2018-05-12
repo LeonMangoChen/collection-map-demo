@@ -2,6 +2,7 @@ package com.leon.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -56,8 +57,53 @@ public class ListTest {
 				temp5.getName() + ";" + temp6.getId() + ":" + temp6.getName());
 	}
 	
+	/**
+	 * 取得List中的元素的方法
+	 * @param args
+	 */
+	public void courseGet(){
+		int size = coursesToSelect.size();
+		System.out.println("有如下课程待选：");
+		for(int i = 0;i<size;i++){
+			Course cr = (Course) coursesToSelect.get(i);
+			System.out.println("课程：" + cr.getId() + ":" + cr.getName());
+		}
+	}
+	
+	/**
+	 * 通过迭代器来遍历List
+	 * @param args
+	 */
+	public void courseIterator(){
+		//通过集合的iterator方法，取得迭代器的实例
+		Iterator it = coursesToSelect.iterator();
+		System.out.println("有如下课程待选(通过迭代器访问)：");
+		while(it.hasNext()){
+			Course cr = (Course) it.next();
+			System.out.println("课程：" + cr.getId() + ":" + cr.getName());
+		}
+	}
+	
+	/**
+	 * 通过for each方法访问集合元素
+	 * @param args
+	 */
+	public void testForEach(){
+		System.out.println("有如下课程待选(通过for each访问)：");
+		for(Object obj:coursesToSelect){
+			Course cr = (Course) obj;
+			System.out.println("课程：" + cr.getId() + ":" + cr.getName());
+		}
+	}
+	
 	public static void main(String[] args){
 		ListTest lt = new ListTest();
 		lt.courseAdd();
+		System.out.println("=====================");
+		lt.courseGet();
+		System.out.println("=====================");
+		lt.courseIterator();
+		System.out.println("=====================");
+		lt.testForEach();
 	}
 }
