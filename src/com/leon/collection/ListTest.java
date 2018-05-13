@@ -36,14 +36,18 @@ public class ListTest {
 		Course temp2 = (Course) coursesToSelect.get(0);
 		System.out.println("添加了课程："+ temp2.getId() +":"+ temp2.getName());
 		
+		coursesToSelect.add(cr1);
+		Course temp0 = (Course) coursesToSelect.get(2);
+		System.out.println("添加了课程："+ temp0.getId() +":"+ temp0.getName());
+		
 		//以下方法会抛出数组下标越界异常
 //		Course cr3 = new Course("3","test");
 //		coursesToSelect.add(4,cr3);
 		
 		Course[] course = {new Course("3","离散数学"),new Course("4","汇编语言")};
 		coursesToSelect.addAll(Arrays.asList(course));
-		Course temp3 = (Course) coursesToSelect.get(2);
-		Course temp4 = (Course) coursesToSelect.get(3);
+		Course temp3 = (Course) coursesToSelect.get(3);
+		Course temp4 = (Course) coursesToSelect.get(4);
 		
 		System.out.println("添加了两门课程：" + temp3.getId() + ":" +
 				temp3.getName() + ";" + temp4.getId() + ":" + temp4.getName());
@@ -96,6 +100,14 @@ public class ListTest {
 		}
 	}
 	
+	/**
+	 * 修改List的元素
+	 * @param args
+	 */
+	public void courseModify(){
+		coursesToSelect.set(4, new Course("7","实变函数"));
+	}
+	
 	public static void main(String[] args){
 		ListTest lt = new ListTest();
 		lt.courseAdd();
@@ -105,5 +117,8 @@ public class ListTest {
 		lt.courseIterator();
 		System.out.println("=====================");
 		lt.testForEach();
+		System.out.println("=====================");
+		lt.courseModify();
+		lt.courseGet();
 	}
 }
