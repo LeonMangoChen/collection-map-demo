@@ -106,19 +106,34 @@ public class ListTest {
 	 */
 	public void courseModify(){
 		coursesToSelect.set(4, new Course("7","实变函数"));
+		
+	}
+	
+	/**
+	 * 删除List的元素
+	 * @param args
+	 */
+	public void courseRemove(){
+		Course cr = (Course) coursesToSelect.get(4);
+		System.out.println("我是课程：" + cr.getId() + ":" + cr.getName() + ",我即将被删除");
+		coursesToSelect.remove(cr);
+		System.out.println("成功删除课程");
+		courseGet();
 	}
 	
 	public static void main(String[] args){
 		ListTest lt = new ListTest();
 		lt.courseAdd();
-		System.out.println("=====================");
+		System.out.println("==========分割线==========");
 		lt.courseGet();
-		System.out.println("=====================");
+		System.out.println("==========分割线==========");
 		lt.courseIterator();
-		System.out.println("=====================");
+		System.out.println("==========分割线==========");
 		lt.testForEach();
-		System.out.println("=====================");
+		System.out.println("==========分割线==========");
 		lt.courseModify();
 		lt.courseGet();
+		System.out.println("==========分割线==========");
+		lt.courseRemove();
 	}
 }
