@@ -80,6 +80,8 @@ public class SetTest {
 					student.courses.add(cr);
 					/**
 					 * Set中，添加明个对象，无论添加多少次，最终只会保留一个改对象
+					 * 最终只会保留一个该对象（的引用）
+					 * 并且，保留的是第一次添加的那一个
 					 */
 //					student.courses.add(cr);
 				}
@@ -91,6 +93,7 @@ public class SetTest {
 	
 	public void testForEachForSet(Student student){
 		//打印输出学生所选的课程！
+		System.out.println("共选择了：" + student.courses.size() + "门课程！");
 		for (Course cr : student.courses) {
 			System.out.println("选择了课程：" + cr.getId() + cr.getName());
 		}
