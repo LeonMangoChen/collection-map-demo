@@ -15,12 +15,12 @@ public class Student {
 	private String name;
 		
 	
-	public Set courses;
+	public Set<Course> courses;
 	
 	public Student(String id,String name){
 		this.id = id;
 		this.name = name;
-		this.courses = new HashSet();
+		this.courses = new HashSet<Course>();
 	}
 	
 	// 学生id的get方法
