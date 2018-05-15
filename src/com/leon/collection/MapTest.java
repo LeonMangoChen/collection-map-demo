@@ -68,7 +68,9 @@ public class MapTest {
 	}
 
 	public static void main(String[] args) {
-		
+		MapTest mt = new MapTest();
+		mt.testPut();
+		mt.testKeySet();
 	}
 
 }
