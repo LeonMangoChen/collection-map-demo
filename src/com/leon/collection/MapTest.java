@@ -3,6 +3,7 @@ package com.leon.collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MapTest {
 	
@@ -48,10 +49,26 @@ public class MapTest {
 			}
 		}
 	}
+	
+	/**
+	 * 测试Map的keySet方法
+	 */
+	public void testKeySet(){
+		//通过keySet方法，返回Map中的所有“键”的set集合
+		Set<String> keySet = students.keySet();
+		//取得students的容量
+		System.out.println("总共有：" + students.size() + "个学生！" );
+		//遍历keySet，取得每一个键，再调用get方法取得每个键对应的value
+		for (String stuId : keySet) {
+			Student st = students.get(stuId);
+			if(st != null){
+				System.out.println("学生：" + st.getName());
+			}
+		}
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }
