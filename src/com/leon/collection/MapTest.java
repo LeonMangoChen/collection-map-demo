@@ -2,6 +2,7 @@ package com.leon.collection;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -76,7 +77,7 @@ public class MapTest {
 		Scanner console = new Scanner(System.in);
 		while(true){
 			//提示输入待删除的学生的ID
-			System.out.println("请输入要删除的学生的ID！");
+			System.out.println("请输入要删除的学生的ID：");
 			String ID = console.next();
 			//判断该ID是否有对应的学生对象
 			Student st = students.get(ID);
@@ -90,6 +91,20 @@ public class MapTest {
 			}
 		}
 	}
+	
+
+	/**
+	 * 通过entrySet方法来遍历Map
+	 */
+	public void testEntrySet(){
+		//通过entrySet方法，返回Map中的所有键值对
+		Set<Entry<String, Student>> entrySet = students.entrySet();
+		for(Entry<String,Student> entry:entrySet){
+			System.out.println("取得键：" + entry.getKey());
+			System.out.println("对应的值为" + entry.getValue().getName());
+		}
+	}
+
 	
 	public static void main(String[] args) {
 		MapTest mt = new MapTest();
