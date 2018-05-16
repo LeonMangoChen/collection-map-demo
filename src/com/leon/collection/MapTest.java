@@ -66,7 +66,31 @@ public class MapTest {
 			}
 		}
 	}
-
+	
+	/**
+	 * 测试删除Map中的映射
+	 */
+	public void testRemove(){
+		
+		//从键盘获取输入待删除学生ID字符串
+		Scanner console = new Scanner(System.in);
+		while(true){
+			//提示输入待删除的学生的ID
+			System.out.println("请输入要删除的学生的ID！");
+			String ID = console.next();
+			//判断该ID是否有对应的学生对象
+			Student st = students.get(ID);
+			if(st == null){
+				System.out.println("该ID不存在！");
+				continue;
+			}else{
+				students.remove(ID);
+				System.out.println("成功删除学生！" + st.getName());
+				break;
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		MapTest mt = new MapTest();
 		mt.testPut();
