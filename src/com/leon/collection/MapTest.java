@@ -104,14 +104,43 @@ public class MapTest {
 			System.out.println("对应的值为" + entry.getValue().getName());
 		}
 	}
-
+	
+	/**
+	 * 利用put方法修改Map中已有的映射
+	 */
+	public void testModify(){
+		//提示输入要修改的学生ID
+		System.out.println("请输入要修改的学生ID");
+		Scanner console = new Scanner(System.in);
+		while(true){
+			//取得从键盘输入的学生ID
+			String stuID = console.next();
+			//从students中查找该学生ID对应的学生对象
+			Student student = students.get(stuID);
+			if(student == null){
+				System.out.println("该ID不存在，请重新输入！");
+				continue;
+			}
+			//提示当前对应的学生对象的姓名
+			System.out.println("当前该学生ID,所对应的学生为："+ student.getName());
+			//提示输入心得学生姓名，来修改已有的映射
+			System.out.println("请输入新的学生姓名：");
+			String name = console.next();
+			Student newStudent = new Student(stuID,name);
+			students.put(stuID,newStudent);
+			System.out.println("修改成功！");
+			break;
+		}
+	}
 	
 	public static void main(String[] args) {
 		MapTest mt = new MapTest();
 		mt.testPut();
 		mt.testKeySet();
 		System.out.println("==========分割线==========");
-		mt.testRemove();
+//		mt.testRemove();
+//		mt.testEntrySet();
+		mt.testModify();
 		mt.testEntrySet();
 	}
 
