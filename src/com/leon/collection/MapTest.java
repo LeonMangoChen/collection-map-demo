@@ -110,6 +110,9 @@ public class MapTest {
 		MapTest mt = new MapTest();
 		mt.testPut();
 		mt.testKeySet();
+		System.out.println("==========·Ö¸îÏß==========");
+		mt.testRemove();
+		mt.testEntrySet();
 	}
 
 }
