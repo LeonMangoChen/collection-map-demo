@@ -11,6 +11,8 @@ public class SetTest {
 	
 	private Scanner console;
 	
+	public Student student;
+	
 	public SetTest(){
 		coursesToSelect = new ArrayList<Course>();
 		console = new Scanner(System.in);
@@ -86,34 +88,56 @@ public class SetTest {
 			coursesToSelect.contains(course2));
 	}
 
-	public static void main(String[] args) {
-		SetTest st = new SetTest();
-		st.courseAdd();
-		st.testForEach();
+	//创建学生对象并选课
+	public void createStudentAndSelectCours(){
 		//创建一个学生对象
-		Student student = new Student("1","小明");
+		student = new Student("1","小明");
 		System.out.println("欢迎学生：" + student.getName() + "选课！");
 		//创建一个Scanner对象，用来接收从键盘输入的课程ID
 		Scanner console = new Scanner(System.in);
-		
+				
 		for(int i = 0;i < 3;i++){
 			System.out.println("请输入课程ID");
 			String courseId = console.next();
-			for (Course cr : st.coursesToSelect) {
+			for (Course cr : coursesToSelect) {
 				if(cr.getId().equals(courseId)){
 					student.courses.add(cr);
 					/**
-					 * Set中，添加明个对象，无论添加多少次，最终只会保留一个改对象
-					 * 最终只会保留一个该对象（的引用）
-					 * 并且，保留的是第一次添加的那一个
-					 */
+						* Set中，添加明个对象，无论添加多少次，最终只会保留一个改对象
+						* 最终只会保留一个该对象（的引用）
+						* 并且，保留的是第一次添加的那一个
+						*/
 //					student.courses.add(cr);
 				}
 			}
 		}
+	}
+	
+	/**
+	 * 测试Set的contains方法
+	 */
+	public void testSetContains(){
+		//提示输入课程名称
+		System.out.println("请输入课程已选的课程名称：");
+		String name = console.next();
+		//创建一个新的课程对象，ID和名称，与course对象玩去一样
+		Course course2 = new Course();
+		course2.setName(name);
+		System.out.println("新创建课程：" + course2.getName());
+		System.out.println("备选课程是否包含课程：" + course2.getName() + "," + 
+			student.courses.contains(course2));
+	}
+	
+	public static void main(String[] args) {
+		SetTest st = new SetTest();
+		st.courseAdd();
+		st.testForEach();
 		
-		st.testForEachForSet(student);
-		st.testListContains();
+		
+		//st.testForEachForSet(student);
+//		st.testListContains();
+		st.createStudentAndSelectCours();
+		st.testSetContains();
 	}
 	
 	public void testForEachForSet(Student student){
