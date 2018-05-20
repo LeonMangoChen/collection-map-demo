@@ -9,8 +9,11 @@ public class SetTest {
 	
 	public List<Course> coursesToSelect;
 	
+	private Scanner console;
+	
 	public SetTest(){
 		coursesToSelect = new ArrayList<Course>();
+		console = new Scanner(System.in);
 	}
 	
 	public void courseAdd(){
@@ -72,8 +75,12 @@ public class SetTest {
 		System.out.println("取得课程：" + course.getName());
 		System.out.println("备选课程中是否包含课程：" + course.getName() + "," +
 			coursesToSelect.contains(course));
+		//提示输入课程名称
+		System.out.println("请输入课程名称：");
+		String name = console.next();
 		//创建一个新的课程对象，ID和名称，与course对象玩去一样
-		Course course2 = new Course(course.getId(),course.getName());
+		Course course2 = new Course();
+		course2.setName(name);
 		System.out.println("新创建课程：" + course2.getName());
 		System.out.println("备选课程是否包含课程：" + course2.getName() + "," + 
 			coursesToSelect.contains(course2));
