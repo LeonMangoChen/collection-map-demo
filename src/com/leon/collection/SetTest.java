@@ -61,6 +61,23 @@ public class SetTest {
 			System.out.println("课程：" + cr.getId() + ":" + cr.getName());
 		}
 	}
+	
+	/**
+	 * 测试List的contains方法
+	 */
+	public void testListContains(){
+		//取得备选课程序列的第0个元素
+		Course course = coursesToSelect.get(0);
+		//打印输出coursesToSelectd是否包含course对象
+		System.out.println("取得课程：" + course.getName());
+		System.out.println("备选课程中是否包含课程：" + course.getName() + "," +
+			coursesToSelect.contains(course));
+		//创建一个新的课程对象，ID和名称，与course对象玩去一样
+		Course course2 = new Course(course.getId(),course.getName());
+		System.out.println("新创建课程：" + course2.getName());
+		System.out.println("备选课程是否包含课程：" + course2.getName() + "," + 
+			coursesToSelect.contains(course2));
+	}
 
 	public static void main(String[] args) {
 		SetTest st = new SetTest();
@@ -89,6 +106,7 @@ public class SetTest {
 		}
 		
 		st.testForEachForSet(student);
+		st.testListContains();
 	}
 	
 	public void testForEachForSet(Student student){
