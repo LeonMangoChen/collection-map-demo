@@ -133,6 +133,22 @@ public class MapTest {
 		}
 	}
 	
+	/**
+	 * 测试Map中，是否包含某个Key值或者某个Value值
+	 */
+	public void testContainsKeyOrValue(){
+		//提示输入学生id
+		System.out.println("请输入要查询的学生ID：");
+		Scanner console = new Scanner(System.in);
+		String id = console.next();
+		//在Map中，用containsKey()方法，来判断是否包含某个key值
+		System.out.println("您输入的学生ID为：" + id + "，在学生映射表中是否存在：" 
+				+ students.containsKey(id));
+		if(students.containsKey(id))
+			System.out.println("对应的学生为：" + students.get(id).getName());
+		//用containsValue()方法，来判断是否包含某个Value值
+	}
+	
 	public static void main(String[] args) {
 		MapTest mt = new MapTest();
 		mt.testPut();
@@ -140,8 +156,9 @@ public class MapTest {
 		System.out.println("==========分割线==========");
 //		mt.testRemove();
 //		mt.testEntrySet();
-		mt.testModify();
-		mt.testEntrySet();
+//		mt.testModify();
+//		mt.testEntrySet();
+		mt.testContainsKeyOrValue();
 	}
 
 }
