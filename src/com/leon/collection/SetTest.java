@@ -86,6 +86,10 @@ public class SetTest {
 		System.out.println("新创建课程：" + course2.getName());
 		System.out.println("备选课程是否包含课程：" + course2.getName() + "," + 
 			coursesToSelect.contains(course2));
+		//通过indexOf方法来获取某元素的索引位置
+		if(coursesToSelect.contains(course2))
+			System.out.println("课程：" + course2.getName() + "的索引位置为：" + 
+					coursesToSelect.indexOf(course2));
 	}
 
 	//创建学生对象并选课
@@ -131,13 +135,14 @@ public class SetTest {
 	public static void main(String[] args) {
 		SetTest st = new SetTest();
 		st.courseAdd();
+		st.testListContains();
 		st.testForEach();
 		
 		
 		//st.testForEachForSet(student);
 //		st.testListContains();
-		st.createStudentAndSelectCours();
-		st.testSetContains();
+//		st.createStudentAndSelectCours();
+//		st.testSetContains();
 	}
 	
 	public void testForEachForSet(Student student){
