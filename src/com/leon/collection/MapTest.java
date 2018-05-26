@@ -146,7 +146,14 @@ public class MapTest {
 				+ students.containsKey(id));
 		if(students.containsKey(id))
 			System.out.println("对应的学生为：" + students.get(id).getName());
+		//提示输入学生姓名
+		System.out.println("请输入要查询的学生姓名：");
+		String name = console.next();
 		//用containsValue()方法，来判断是否包含某个Value值
+		if(students.containsValue(new Student(null,name)))
+			System.out.println("在学生映射表中，确实包含学生：" + name);
+		else
+			System.out.println("在学生映射表中不存在该学生！");
 	}
 	
 	public static void main(String[] args) {
