@@ -43,9 +43,37 @@ public class CollectionsTest {
 		System.out.println(integerList);
 	}
 	
+	/**
+	 * 2.对String泛型的List进行排序；
+	 * 创建String泛型的List，添加三哥哥乱序的Sting元素，
+	 * 调用sort方法，再次输入排序后的顺序
+	 */
+	public void testSort2(){
+		List<String> stringList = new ArrayList<String>();
+		stringList.add("Java");
+		stringList.add("JavaScript");
+		stringList.add("Python");
+		System.out.println("-----------排序前------------");
+		for (String string : stringList) {
+			System.out.println("元素" + string);
+		}
+		Collections.sort(stringList);
+		/**
+		 * 排列顺序
+		 * 数字：0-9
+		 * 大写字母：A-Z
+		 * 小写字母：a-z
+		 */
+		System.out.println("-----------排序后------------");
+		for (String string : stringList) {
+			System.out.println("元素" + string);
+		}
+	}
+	
 	public static void main(String[] args) {
 		CollectionsTest ct = new CollectionsTest();
 		ct.testSort1();
+		ct.testSort2();
 
 	}
 
